@@ -1,0 +1,46 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>
+      var items = [];
+      function save(){
+        var data = document.getElementById('data').value;
+      
+        items.push(data);
+       view();
+    }
+    function view(){
+        var result = "<ol>";
+        for(var i=0;i<items.length;i++){
+        result += "<li>"+items[i]+"</li>";
+
+        }
+        result += "</ol>"
+        document.getElementById('output').innerHTML = result;
+         
+    }
+    function removefirst(){
+        items.shift();
+        view();
+    }
+    function removelast(){
+        items.pop();
+        view();
+    }
+    
+    </script>
+</head>
+<body>
+    <h1 style="color:blue;"align="center">Telephone Directory</h1>
+    Name<input type="text" id="data">
+    Phone Number<input type="number" id="data">
+    <br><br>
+    <button onclick="save()">Add Contact</button>
+    <button onclick="removefirst()">Remove first</button>
+    <button onclick="removelast()">Remove last</button>
+    <hr>
+    <div id="output" style="color:blue; font-size: 20px;"></div>
+</body>
+</html>
